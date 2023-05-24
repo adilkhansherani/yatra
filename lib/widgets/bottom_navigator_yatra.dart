@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yatra/constants/colors.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavigator extends StatefulWidget {
@@ -12,11 +11,6 @@ class BottomNavigator extends StatefulWidget {
 
 class _BottomNavigatorState extends State<BottomNavigator> {
   int _selectedIndex = 0;
-
-
-
-  var bottomTextStyle =
-      GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w500);
 
   void _onItemTapped(int index) {
     setState(() {
