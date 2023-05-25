@@ -4,6 +4,7 @@ import 'package:yatra/constants/colors.dart';
 import 'package:yatra/constants/style_constant.dart';
 import 'package:yatra/widgets/bottom_navigator_yatra.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:yatra/models/popular_destination_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -128,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'assets/svg/service_train_icon.svg',
                             fit: BoxFit.contain,
                           ),
-                          
+
                           Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Column(
@@ -245,6 +246,63 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      
+        // Popular Destination Section
+            Padding(
+              padding:const EdgeInsets.only(left: 16, top: 24, bottom: 12),
+              child: Text(
+                'Popular Destinations!',
+                style: mTitleStyle,
+              ),
+            ),
+
+            SizedBox(
+              height: 140,
+              child: ListView.builder(
+                itemCount: populars.length,
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                scrollDirection: Axis.horizontal,
+
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+
+                    child: Container(
+                      height: 140,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 8.0, bottom: 16),
+                        child: Column(
+                          children: <Widget>[
+                            Image.asset(
+                              populars[index].image,
+                              height: 74,
+                            ),
+                            Text(
+                              populars[index].name,
+                              style: mPopularDestinationTitleStyle,
+                            ),
+                            Text(
+                              populars[index].country,
+                              style: mPopularDestinationSubtitleStyle,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+
       ]),
     );
   }
