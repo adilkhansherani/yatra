@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:yatra/constants/colors.dart';
+import 'package:yatra/constants/colors.dart';
 import 'package:yatra/constants/style_constant.dart';
 import 'package:yatra/widgets/bottom_navigator_yatra.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -21,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
     'assets/images/carousel_hotel_discount.png',
   ];
 
+  // need to add dots below image slider
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,34 +33,223 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       backgroundColor: const Color(0xffFafafa),
       bottomNavigationBar: const BottomNavigator(),
-      body: ListView(
-        physics: const ClampingScrollPhysics(),
-        children: <Widget>[
-          //promos section
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Text(
-              'hi, Goa chale',
-              style: mTitleStyle,
-            ),
+      body: ListView(physics: const ClampingScrollPhysics(), children: <Widget>[
+        //promos section
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Text(
+            'hi, Goa chale',
+            style: mTitleStyle,
           ),
-          Container(
-            alignment: Alignment.centerLeft,
-            margin:const EdgeInsets.only(left: 16, right: 16),
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                MultipleImageSlider(imagePaths: imagePaths),
+        ),
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: const EdgeInsets.only(left: 16, right: 16),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              MultipleImageSlider(imagePaths: imagePaths),
             ],
           ),
         ),
-      ]    
-      ),
+
+        // Service Section
+        Padding(
+          padding: const EdgeInsets.only(left: 16, top: 24, bottom: 12),
+          child: Text(
+            'Let\'s Booking!',
+            style: mTitleStyle,
+          ),
+        ),
+        Container(
+          height: 144,
+          margin: const EdgeInsets.only(left: 16, right: 16),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 8),
+                      padding: const EdgeInsets.only(left: 16),
+                      height: 64,
+
+                      decoration: BoxDecoration(
+                        color: mFillColor,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+
+                      child: Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/svg/service_flight_icon.svg',
+                            fit: BoxFit.contain,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Flight',
+                                  style: mServiceTitleStyle,
+                                ),
+                                Text(
+                                  'Feel freedom',
+                                  style: mServiceSubtitleStyle,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 8),
+                      padding: const EdgeInsets.only(left: 16),
+                      height: 64,
+
+                      decoration: BoxDecoration(
+                        color: mFillColor,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+
+                      child: Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/svg/service_train_icon.svg',
+                            fit: BoxFit.contain,
+                          ),
+                          
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Trains',
+                                  style: mServiceTitleStyle,
+                                ),
+                                Text(
+                                  'Intercity',
+                                  style: mServiceSubtitleStyle,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+
+                    ),
+                  )
+                ],
+              ),
+
+              const SizedBox(height: 16,),
+
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 8),
+                      padding: const EdgeInsets.only(left: 16),
+                      height: 64,
+
+                      decoration: BoxDecoration(
+                        color: mFillColor,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+
+                      child: Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/svg/service_hotel_icon.svg',
+                            fit: BoxFit.contain,
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Hotel',
+                                  style: mServiceTitleStyle,
+                                ),
+                                Text(
+                                  'Let\'s take a break',
+                                  style: mServiceSubtitleStyle,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 8),
+                      padding: const EdgeInsets.only(left: 16),
+                      height: 64,
+
+                      decoration: BoxDecoration(
+                        color: mFillColor,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+
+                      child: Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/svg/service_car_rental_icon.svg',
+                            fit: BoxFit.contain,
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Car Rental',
+                                  style: mServiceTitleStyle,
+                                ),
+                                Text(
+                                  'Around the city',
+                                  style: mServiceSubtitleStyle,
+                                )
+                              ],
+                            ),
+                          )
+
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
+
 class MultipleImageSlider extends StatelessWidget {
   final List<String> imagePaths;
 
